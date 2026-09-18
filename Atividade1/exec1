@@ -1,3 +1,5 @@
+Questão 1 — Sistema de Classificação de Crédito
+
 idade = int(input("Digite sua idade: "))
 salario = float(input("Digite seu salário: "))
 divida = float(input("Digite o valor da sua dívida: "))
