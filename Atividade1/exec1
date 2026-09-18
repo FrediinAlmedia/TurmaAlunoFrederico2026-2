@@ -1,1 +1,43 @@
+idade = int(input("Digite sua idade: "))
+salario = float(input("Digite seu salário: "))
+divida = float(input("Digite o valor da sua dívida: "))
+tempo = int(input("Digite o tempo em anos para pagar a dívida: "))
+valor = float(input("Digite o valor que você pode pagar por mês: "))
+parcelas = int(input("Digite o número de parcelas que você deseja pagar: "))
 
+comprometimento = divida / salario
+parcela = valor / parcelas
+novo_comprometimento = parcela / salario
+
+motivo = ""
+
+if (21 <= idade <= 65 and salario >= 2500 and tempo >= 12 and comprometimento <= 0.30 and parcela <= salario * 0.25 and novo_comprometimento <= 0.30):
+    resultado = "Aprovado"
+
+elif (21 <= idade <= 65 and salario >= 2500 and tempo >= 6 and novo_comprometimento <= 0.50): 
+    resultado = "Aprovado com restrições"
+    motivo = "O tempo para pagar a dívida é menor que 12 meses, mas o comprometimento está dentro do limite permitido."
+
+else:
+    resultado = "Reprovado"
+
+    if idade < 21 or idade >65:
+        motivo += "Idade fora do limite permitido. "
+    elif salario < 2500:
+        motivo += "Salário abaixo do mínimo exigido. "
+    elif tempo < 6:
+        motivo += "Tempo para pagar a dívida é menor que 6 meses. "
+    elif comprometimento > 0.50:
+        motivo += "Comprometimento da dívida com o salário acima do limite permitido. "
+print("\nResultado da análise de crédito:")
+print("Valor da parcela: R$" + str(parcela))
+print("Comprometimento: " + str(comprometimento))
+print("Novo comprometimento: " + str(novo_comprometimento))
+print("Motivo: " + motivo)
+
+if resultado == "Aprovado":
+    print("Parabéns! Seu crédito foi aprovado.")
+elif resultado == "Aprovado com restrições":    
+    print("Seu crédito foi aprovado com restrições.")
+else:
+    print("Infelizmente, seu crédito foi reprovado.")  
