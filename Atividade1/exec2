@@ -1,0 +1,35 @@
+# Cálculo do Imposto de Renda
+
+salario = float(input("Digite o salário bruto: "))
+dependentes = int(input("Digite a quantidade de dependentes: "))
+previdencia = float(input("Digite o valor pago em pensão alimentícia: "))
+pensao = float(input("Digite o valor pago em previdência privada: "))
+
+deducao = dependentes * 250
+total_deducoes = deducao + previdencia + pensao
+base = salario - total_deducoes
+
+if base <= 0:
+    print("Erro: As deduções são maiores que o salário bruto.")
+else:
+    if base <= 2500.00:
+        aliquota = 0
+    elif base <= 3500.00:
+        aliquota = 7.5
+    elif base <= 5000.00:
+        aliquota = 15
+    elif base <= 7500.00:
+        aliquota = 22.5
+    else:
+        aliquota = 27.5
+
+imposto = base * (aliquota / 100)
+liquido = salario - imposto - total_deducoes
+
+print("\nRESULTADO")
+print("Salário Bruto: R$", salario)
+print("Deduções: R$", total_deducoes)
+print("Base de Cáculo: R$", base)
+print("Alíquota: ", aliquota, "%")
+print("Imposto de Renda: R$", imposto)
+print("Salário Líquido: R$", liquido)
