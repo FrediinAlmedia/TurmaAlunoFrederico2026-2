@@ -1,0 +1,34 @@
+renda =  float(input("Renda mensal: "))
+moradia = float(input("Gastos com moradia: "))
+alimentacao = float(input("Gastos com alimentação: "))
+transporte = float(input("Gastos com transporte: "))
+saude = float(input("Gastos com saúde: "))
+educacao = float(input("Gastos com educação: "))
+lazer = float(input("Gastos com lazer: "))
+dividas = float(input("Gastos com dívidas: "))
+
+despesas = moradia + alimentacao + transporte + saude + educacao + lazer + dividas
+
+saldo = renda - despesas
+comprometimento = (despesas / renda) * 100
+perc_dividas = (dividas / renda) * 100
+
+if despesas > renda and saldo < saldo -(0.20 * renda):
+    situacao = "Isnolvência"
+    recomendacao = "Reduzir gastos e buscar fontes de renda adicionais."
+
+elif despesas > 85 or perc_dividas > 35:
+    situacao = "Atenção com endividamento"
+    recomendacao = "Controlar gastos e priorizar o pagamento de dívidas."
+
+else:
+    situacao = "Está bom de bolso"
+    recomendacao = "Continue, assim você chega no BUZEIRA"
+
+print("\nRESULTADO")
+print("Total de despesas: R$", despesas)
+print("Saldo mensal: R$", saldo)
+print("Renda comprometida:", comprometimento, "%")
+print("Percentual gasto com dívidas:", perc_dividas, "%")
+print("Situação financeira:", situacao)
+print("Recomendação:", recomendacao)
