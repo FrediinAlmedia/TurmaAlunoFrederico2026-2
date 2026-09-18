@@ -1,0 +1,39 @@
+# Sistema de avaliação acadêmica
+
+nota1 = float(input("Digite a primeira nota: ").replace(",", "."))
+nota2 = float(input("Digite a segunda nota: ").replace(",", "."))
+nota3 = float(input("Digite a terceira nota: ").replace(",", "."))
+
+frequencia = float(input("Digite a frequência (em %): ").replace(",", "."))
+entregues = int(input("Digite o número de atividades entregues: "))
+total = int(input("Digite o número total de atividades: "))
+
+media = (nota1 + nota2 + nota3) / 3
+percentual = (entregues / total) * 100
+
+motivo = ""
+
+if media >= 75:
+    resultado = "Reprovado por frequência"
+    motivo = "Frequência insuficiente"
+
+elif media < 5:
+    resultado = "Reprovado por nota"
+    motivo = "Média insuficiente"
+
+elif media >= 9 and frequencia >= 75 and percentual >= 70:
+    resultado = "Aprovado"
+    motivo = "Média, frequência e percentual de atividades entregues satisfatórios"
+
+elif media >= 7 and frequencia >= 7 and frequencia < 75:
+    resultado = "Aprovado com ressalvas"
+    motivo = "Média satisfatória, mas frequência insuficiente"
+
+print("\nRESULTADO")
+print("Média:", media)
+print("Frequência:", frequencia, "%")
+print("Percentual de atividades entregues:", percentual, "%")
+print("Situação:", resultado)
+
+if motivo:
+    print("Requisito que impediu classificação superior:", motivo)
