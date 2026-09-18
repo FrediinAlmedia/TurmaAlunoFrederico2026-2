@@ -1,0 +1,39 @@
+# Cálculo de frete inteligente
+
+peso = float(input("Peso da encomenda (em KG): "))
+distancia = float(input("Distância (em KM): "))
+tipo = input("Tipo de entrega (normal, expresso, prioritário): ").lower()
+assinante = input("Cliente é assinante? (s/n): ").lower()
+compra = float(input("Valor da compra (em R$): "))
+
+frete = (peso * 2.5) + (distancia * 0.30)
+
+if tipo == "expresso":
+    frete *= 1.30
+elif tipo == "urgente":
+    frete = frete * 1.60  
+
+if peso > 30:
+    frete += 80
+
+if distancia > 500:
+    frete += 100
+
+if assinante == "s":
+    desconto = 15
+
+if compra > 1000:
+    desconto += 10
+
+if desconto > 20:
+    desconto = 20
+
+if assinante == "s" and compra > 2000 and tipo == "normal" and peso  <= 10:
+    frete_final = 0
+else:
+    frete_final = frete - (frete * (desconto / 100))
+
+print("\nRESULTADO")
+print("Frete base: R$", frete)
+print("Desconto aplicado:", desconto, "%")
+print("Frete final: R$", frete_final)
