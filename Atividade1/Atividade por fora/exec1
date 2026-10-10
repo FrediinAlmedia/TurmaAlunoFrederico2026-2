@@ -1,0 +1,42 @@
+#Cadastro de alunos
+print("=== CADRASTRO DE ALUNO ===")
+print()
+
+nome = input("Nome do aluno: ")
+curso = input("Curso: ")
+idade = input("Idade: ")
+altura = input("Altura: ")
+peso = input("Peso: ")
+mensalidade = input("Mensalidade: ")
+meses = input("Meses: ")
+
+print()
+print("=== DADOS DO ALUNO ===") 
+print("Nome: ", nome)
+print("curso: ", curso)
+print("idade: ", idade)
+print("altura: ", altura)
+print("peso: ", peso)
+print("mensalidade: ", mensalidade)
+print("meses: ", meses)
+
+mensalidade_num = mensalidade.replace("R$", "").replace(" ", "").strip()
+if "," in mensalidade_num:
+    mensalidade_num = mensalidade_num.replace(".", "").replace(",", ".")
+total = float(mensalidade_num) * int(meses)
+idade_futura = int(idade) + 5
+print()
+print("=== CÁLCULOS ===")
+print("total a cobrar: R$ ", total)
+print("total arredondado: R$ ", round(total, 2))
+print("Daqui a 5 anos, o aluno terá: ", idade_futura, "anos")
+
+print()
+print("=== TIPOS ===")
+print("nome é: ", type(nome))
+print("idade é: ", type(idade))
+print("altura é: ", type(altura))
+print("peso é: ", type(peso))
+print("mensalidade é: ", type(mensalidade))
+print("meses é: ", type(meses))
+print("Cadrasto finalizado com sucesso!")
